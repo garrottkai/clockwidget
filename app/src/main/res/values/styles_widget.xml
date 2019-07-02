@@ -1,0 +1,7 @@
+<resources>
+    <style name="ClockText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/widget_text_large</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+</resources>

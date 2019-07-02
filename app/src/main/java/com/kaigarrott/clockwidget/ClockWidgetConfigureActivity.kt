@@ -4,19 +4,18 @@ import android.app.Activity
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 
 /**
- * The configuration screen for the [NewAppWidget] AppWidget.
+ * The configuration screen for the [ClockWidget] AppWidget.
  */
-class NewAppWidgetConfigureActivity : Activity() {
+class ClockWidgetConfigureActivity : Activity() {
     internal var mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
     internal var mAppWidgetText: EditText? = null
     internal var mOnClickListener: View.OnClickListener = View.OnClickListener {
-        val context = this@NewAppWidgetConfigureActivity
+        val context = this@ClockWidgetConfigureActivity
 
         // When the button is clicked, store the string locally
         val widgetText = mAppWidgetText?.text.toString()
@@ -24,7 +23,7 @@ class NewAppWidgetConfigureActivity : Activity() {
 
         // It is the responsibility of the configuration activity to update the app widget
         val appWidgetManager = AppWidgetManager.getInstance(context)
-        NewAppWidget.updateAppWidget(context, appWidgetManager, mAppWidgetId)
+        ClockWidget.updateAppWidget(context, appWidgetManager, mAppWidgetId)
 
         // Make sure we pass back the original appWidgetId
         val resultValue = Intent()
@@ -40,7 +39,7 @@ class NewAppWidgetConfigureActivity : Activity() {
         // out of the widget placement if the user presses the back button.
         setResult(Activity.RESULT_CANCELED)
 
-        setContentView(R.layout.new_app_widget_configure)
+        setContentView(R.layout.clock_widget_configure)
         mAppWidgetText = findViewById<View>(R.id.appwidget_text) as EditText
         findViewById<View>(R.id.add_button).setOnClickListener(mOnClickListener)
 
@@ -59,12 +58,12 @@ class NewAppWidgetConfigureActivity : Activity() {
             return
         }
 
-        mAppWidgetText?.setText(loadTitlePref(this@NewAppWidgetConfigureActivity, mAppWidgetId))
+        mAppWidgetText?.setText(loadTitlePref(this@ClockWidgetConfigureActivity, mAppWidgetId))
     }
 
     companion object {
 
-        private val PREFS_NAME = "com.kaigarrott.clockwidget.NewAppWidget"
+        private val PREFS_NAME = "com.kaigarrott.clockwidget.ClockWidget"
         private val PREF_PREFIX_KEY = "appwidget_"
 
         // Write the prefix to the SharedPreferences object for this widget

@@ -9,17 +9,17 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <receiver android:name=".NewAppWidget">
+        <receiver android:name=".ClockWidget">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
 
             <meta-data
                     android:name="android.appwidget.provider"
-                    android:resource="@xml/new_app_widget_info"/>
+                    android:resource="@xml/clock_widget_info"/>
         </receiver>
 
-        <activity android:name=".NewAppWidgetConfigureActivity">
+        <activity android:name=".ClockWidgetConfigureActivity">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
             </intent-filter>

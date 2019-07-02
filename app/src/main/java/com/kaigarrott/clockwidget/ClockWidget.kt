@@ -7,9 +7,9 @@ import android.widget.RemoteViews
 
 /**
  * Implementation of App Widget functionality.
- * App Widget Configuration implemented in [NewAppWidgetConfigureActivity]
+ * App Widget Configuration implemented in [ClockWidgetConfigureActivity]
  */
-class NewAppWidget : AppWidgetProvider() {
+class ClockWidget : AppWidgetProvider() {
 
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         // There may be multiple widgets active, so update all of them
@@ -21,7 +21,7 @@ class NewAppWidget : AppWidgetProvider() {
     override fun onDeleted(context: Context, appWidgetIds: IntArray) {
         // When the user deletes the widget, delete the preference associated with it.
         for (appWidgetId in appWidgetIds) {
-            NewAppWidgetConfigureActivity.deleteTitlePref(context, appWidgetId)
+            ClockWidgetConfigureActivity.deleteTitlePref(context, appWidgetId)
         }
     }
 
@@ -40,9 +40,9 @@ class NewAppWidget : AppWidgetProvider() {
             appWidgetId: Int
         ) {
 
-            val widgetText = NewAppWidgetConfigureActivity.loadTitlePref(context, appWidgetId)
+            val widgetText = ClockWidgetConfigureActivity.loadTitlePref(context, appWidgetId)
             // Construct the RemoteViews object
-            val views = RemoteViews(context.packageName, R.layout.new_app_widget)
+            val views = RemoteViews(context.packageName, R.layout.clock_widget)
             views.setTextViewText(R.id.appwidget_text, widgetText)
 
             // Instruct the widget manager to update the widget
