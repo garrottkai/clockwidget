@@ -3,18 +3,13 @@
                 android:layout_height="match_parent"
                 android:padding="@dimen/widget_margin"
                 android:background="@drawable/border">
-
-    <TextView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/appwidget_text"
+    
+    <TextClock
             style="@style/ClockText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="@string/appwidget_text"
-            android:contentDescription="@string/appwidget_text"
             android:textAlignment="center"
-            android:lines="1"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginStart="8dp"
