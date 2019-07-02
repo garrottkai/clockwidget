@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.RadioButton
 
 /**
  * The configuration screen for the [ClockWidget] AppWidget.
@@ -40,7 +41,6 @@ class ClockWidgetConfigureActivity : Activity() {
         setResult(Activity.RESULT_CANCELED)
 
         setContentView(R.layout.clock_widget_configure)
-        mAppWidgetText = findViewById<View>(R.id.appwidget_text) as EditText
         findViewById<View>(R.id.add_button).setOnClickListener(mOnClickListener)
 
         // Find the widget id from the intent.
@@ -59,6 +59,22 @@ class ClockWidgetConfigureActivity : Activity() {
         }
 
         mAppWidgetText?.setText(loadTitlePref(this@ClockWidgetConfigureActivity, mAppWidgetId))
+    }
+
+    fun formatTime(view: View) {
+        if(view is RadioButton) {
+            when(view.id) {
+                R.id.clock_format_12 ->
+                    if(view.isChecked) {
+
+                    }
+                R.id.clock_format_24 ->
+                    if(view.isChecked) {
+
+                    }
+            }
+        }
+
     }
 
     companion object {

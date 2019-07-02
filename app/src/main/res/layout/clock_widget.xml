@@ -3,7 +3,7 @@
                 android:layout_height="match_parent"
                 android:padding="@dimen/widget_margin"
                 android:background="@drawable/border">
-    
+
     <TextClock
             style="@style/ClockText"
             android:layout_width="match_parent"
