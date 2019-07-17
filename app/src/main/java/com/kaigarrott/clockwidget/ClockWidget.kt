@@ -21,7 +21,7 @@ class ClockWidget : AppWidgetProvider() {
     override fun onDeleted(context: Context, appWidgetIds: IntArray) {
         // When the user deletes the widget, delete the preference associated with it.
         for (appWidgetId in appWidgetIds) {
-            ClockWidgetConfigureActivity.deleteTitlePref(context, appWidgetId)
+            ClockWidgetConfigureActivity.deleteFormatPref(context, appWidgetId)
         }
     }
 
